@@ -1,0 +1,163 @@
+/* Estilos básicos para la página */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Estilo del menú de navegación */
+nav {
+    background-color: #333;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+nav ul li {
+    margin: 0 20px;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Estilo del menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Sección principal con fondo azul */
+#home {
+    text-align: center;
+    padding: 100px 20px;
+    background-image: url('La-Serena-Beach.jpg'); /* Ruta de la imagen */
+    background-size: cover; /* Para cubrir todo el fondo */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    color: white;
+    min-height: 50vh; /* Asegura que la sección tenga al menos el alto de la ventana */
+}
+
+#home h1 {
+    font-size: 48px;
+}
+
+#home p {
+    font-size: 20px;
+}
+
+/* Estilo del mapa de Google */
+#map-section {
+    padding: 50px;
+    text-align: center;
+}
+
+#map {
+    height: 400px;
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid #333;
+    border-radius: 8px;
+}
+
+/* Pie de página */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Contraste alto */
+.high-contrast {
+    background-color: black;
+    color: white;
+}
+
+/* Resaltar objetos */
+.highlight {
+    outline: 2px solid yellow;
+    background-color: lightyellow;
+}
+
+/* Cursor grande */
+.large-cursor {
+    cursor: url('https://example.com/large-cursor.png'), auto;
+}
+
+/* Controles de accesibilidad en el pie de página */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.accessibility-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.accessibility-controls button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.accessibility-controls button:hover {
+    background-color: #0056b3;
+}

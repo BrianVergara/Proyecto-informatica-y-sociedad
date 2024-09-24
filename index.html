@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Menú y Mapa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav>
+        <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#about">Sobre nosotros</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección de bienvenida -->
+    <section id="home">
+        <h1>Bienvenidos</h1>
+        <p>¡Explora nuestro contenido!</p>
+    </section>
+
+    <!-- Sección con el mapa de Google -->
+    <section id="map-section">
+        <h2>Encuéntranos Aquí</h2>
+        <div id="map"></div>
+    </section>
+
+    <!-- Pie de página con botones de accesibilidad -->
+    <footer>
+        <div class="accessibility-controls">
+            <button onclick="increasePageSize()">Aumentar</button>
+            <button onclick="decreasePageSize()">Disminuir</button>
+            <button onclick="toggleContrast()">Contraste</button>
+            <button onclick="highlightElements()">Resaltar objetos</button>
+            <button onclick="enlargeCursor()">Cursor</button>
+            <button onclick="toggleReadAloud()">Audio lectura</button>
+        </div>
+        <p>&copy; 2024 Mi Página Web. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script para funcionalidades -->
+    <script>
+        let pageSize = 100; // Tamaño inicial de la página
+
+        // Aumentar el tamaño de la página
+        function increasePageSize() {
+            pageSize += 10;
+            document.body.style.zoom = pageSize + '%';
+        }
+
+        // Disminuir el tamaño de la página
+        function decreasePageSize() {
+            pageSize -= 10;
+            document.body.style.zoom = pageSize + '%';
+        }
+
+        // Alternar alto contraste
+        function toggleContrast() {
+            document.body.classList.toggle('high-contrast');
+        }
+
+        // Resaltar elementos
+        function highlightElements() {
+            let elements = document.querySelectorAll('h1, h2, p, button');
+            elements.forEach(element => {
+                element.classList.toggle('highlight');
+            });
+        }
+
+        // Hacer el cursor más grande
+        function enlargeCursor() {
+            document.body.classList.toggle('large-cursor');
+        }
+
+        // Controlar lectura en voz alta
+        let isReading = false;  // Variable para controlar el estado de lectura
+
+        function toggleReadAloud() {
+            if (isReading) {
+                // Detener la lectura
+                speechSynthesis.cancel();
+            } else {
+                // Iniciar la lectura
+                let textToRead = document.body.innerText;
+                let utterance = new SpeechSynthesisUtterance(textToRead);
+                speechSynthesis.speak(utterance);
+            }
+            isReading = !isReading;  // Alternar el estado
+        }
+    </script>
+
+    <!-- Script para Google Maps -->
+    <script>
+      function initMap() {
+        var location = { lat: -29.90453, lng: -71.24894 };  // La Serena, Chile
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: location
+        });
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap">
+    </script>
+</body>
+</html>
