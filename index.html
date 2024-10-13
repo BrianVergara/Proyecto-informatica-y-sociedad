@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página con Menú y Mapa</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <!-- Menú de navegación -->
@@ -23,7 +30,7 @@
         <p>¡Explora nuestro contenido!</p>
     </section>
 
-    <!-- Sección con el mapa de Google -->
+    <!-- Sección con el mapa de OpenStreetMap -->
     <section id="map-section">
         <h2>Encuéntranos Aquí</h2>
         <div id="map"></div>
@@ -93,22 +100,16 @@
         }
     </script>
 
-    <!-- Script para Google Maps -->
+    <!-- Script para Leaflet y OpenStreetMap -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-      function initMap() {
-        var location = { lat: -29.90453, lng: -71.24894 };  // La Serena, Chile
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 14,
-          center: location
-        });
-        var marker = new google.maps.Marker({
-          position: location,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap">
+        var map = L.map('map').setView([-29.90453, -71.24894], 14); // Coordenadas iniciales
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var marker = L.marker([-29.90453, -71.24894]).addTo(map);
     </script>
 </body>
 </html>
